@@ -1,23 +1,34 @@
 var Gesso = require('gesso');
 var fillRotatedRect = require('./helpers').fillRotatedRect;
 
-// Create the game object
 var game = new Gesso();
+var radians = 0;
+var radiansMaxSpeed = 1 / 60.0;
+var radiansSpeed = radiansMaxSpeed;
+var radiansAccel = 0.001;
 
-// We'll use closures for game variables
-var seconds = 0;
+Gesso.getCanvas().addEventListener('mousedown', function (e) {
+  e.stopPropagation();
+  e.preventDefault();
 
-// This gets called every frame. Update your game state here.
-game.update(function () {
-  // Calculate the time passed, based on 60 frames per second
-  seconds += 1 / 60;
+  radiansSpeed = -5 / 60.0;
+
+  return false;
 });
 
-// This gets called at least once per frame. You can call
-// Gesso.renderTo(target) to render the game to another canvas.
+game.update(function () {
+  if (radiansSpeed < radiansMaxSpeed) {
+    radiansSpeed += radiansAccel;
+  }
+  if (radiansSpeed > radiansMaxSpeed) {
+    radiansSpeed = radiansMaxSpeed;
+  }
+
+  radians += radiansSpeed;
+});
+
 game.render(function (ctx) {
-  // Calculate one rotation per second
-  var angle = seconds * (Math.PI / 2);
+  var angle = radians * (Math.PI / 2);
 
   // Clear the canvas
   ctx.clearRect(0, 0, game.width, game.height);
@@ -35,5 +46,4 @@ game.render(function (ctx) {
   fillRotatedRect(ctx, 200, 250, 200, 200, angle * 2);
 });
 
-// Run the game
 game.run();
