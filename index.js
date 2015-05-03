@@ -8,9 +8,9 @@ var radiansSpeed = radiansMaxSpeed;
 var radiansAccel = 0.001;
 
 Gesso.getCanvas().addEventListener('mousedown', function (e) {
-  e.stopPropagation();
   e.preventDefault();
 
+  // Spin!
   radiansSpeed = -5 / 60.0;
 
   return false;
