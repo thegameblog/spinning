@@ -1,6 +1,6 @@
 {
   "name": "spinning",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Joe Esposito <joe@joeyespo.com>",
   "description": "Renders a set of spinning rectangles to demonstrate basic animation in Gesso.js.",
   "homepage": "http://github.com/thegameblog/spinning",
