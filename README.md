@@ -31,5 +31,5 @@ Now visit [http://localhost:65330](http://localhost:65330/).
 
 
 [screenshot]: screenshot.png
-[demo]: http://gameblog.gessojs.com/press-start/
+[demo]: http://thegameblog.com/press-start
 [gesso]: http://github.com/gessojs/gessojs
